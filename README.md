@@ -1,2 +1,2 @@
-# active_directory
+# Active Directory
 Scripts for active directory
