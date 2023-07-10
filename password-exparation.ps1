@@ -12,7 +12,7 @@ $smtpPassword = "Password"
 $currentDate = Get-Date
 
 # Отримання даних про користувача
-$users = Get-ADUser -Filter {SamAccountName -eq 'anton.omelchenko'} -Properties msDS-UserPasswordExpiryTimeComputed, EmailAddress
+$users = Get-ADUser -Filter {Enabled -eq $true} -SearchBase ',OU=users,DC=domain,DC=local' -Properties msDS-UserPasswordExpiryTimeComputed, EmailAddress
 
 foreach ($user in $users) {
     # Відправка листа, якщо термін дії пароля закінчується через $daysBeforeExpiration днів
